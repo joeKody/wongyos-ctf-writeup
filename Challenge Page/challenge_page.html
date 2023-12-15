@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://202.29.103.200/challenges -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Wongyos CTF</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="http://202.29.103.200/files/33b0a97405363a37976013d870db6ba4/WongyosCTF.png" type="image/x-icon">
+	<link rel="stylesheet" href="./challenge_page_files/fonts.min.css">
+	<link rel="stylesheet" href="./challenge_page_files/main.min.css">
+	<link rel="stylesheet" href="./challenge_page_files/core.min.css">
+	
+	<link rel="stylesheet" href="./challenge_page_files/challenge-board.min.css">
+
+
+	
+	<script type="text/javascript">
+		var init = {
+			'urlRoot': "",
+			'csrfNonce': "ae4cc2914d9749ca1c754323399772ff2918d9dfed937d3ec68a03a8f19ade69",
+			'userMode': "users",
+			'userId': 513,
+			'start': null,
+			'end': null,
+			'theme_settings': {"challenge_window_size": "lg"}
+		}
+	</script>
+	<style>
+
+.navbar {
+    background: black !important;
+}
+
+body {
+    background-image: url("https://i.imgur.com/twpzRcF.jpg");
+  	/* background-image: url("https://i.ibb.co/7vxCZ2B/rtpctfbg2.png"); */
+    color: white !important;
+    background-size: cover;
+}
+  
+.menu-item:hover {
+    color: #212529 !important;
+}
+
+.menu-item {
+    font-size: 1.1rem !important;
+    border-width: 2px !important; 
+}
+  
+.jumbotron {
+    background: transparent !important;
+}
+
+.challenges-row div {
+    text-align: center;
+    width: 100%;
+}
+
+.challenge-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 20px !important; 
+    color: black !important;
+    background: white !important;
+    border-radius: 10px;
+    /*overwrite defaults*/
+    box-shadow: none !important;
+}
+
+.challenge-button p, .challenge-button span {
+    width: 100%;
+    font-family: Raleway,RalewayOffline,sans-serif;
+}
+
+.challenge-button p {
+    font-size: 14px;
+}
+
+.challenge-button span {
+    font-family: courier;
+    font-size: 24px;
+}
+  
+.table, #score-graph, .modal-dialog, .input-filled-valid {
+    filter: invert(1);
+}
+
+.modal-dialog {
+    color: black;
+}
+
+.card {
+    color: black;
+    filter: invert(1);
+}
+
+</style>
+</head>
+<body class="" style="">
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" style="">
+    <div class="container">
+        <a href="http://202.29.103.200/" class="navbar-brand">
+            
+                Wongyos CTF
+            
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#base-navbars" aria-controls="base-navbars" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="base-navbars">
+            <ul class="navbar-nav mr-auto">
+                
+
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://202.29.103.200/users">Users</a>
+                    </li>
+                    
+                
+
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://202.29.103.200/scoreboard">Scoreboard</a>
+                    </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" href="http://202.29.103.200/challenges">Challenges</a>
+                </li>
+            </ul>
+
+            <hr class="d-sm-flex d-md-flex d-lg-none">
+
+            <ul class="navbar-nav ml-md-auto d-block d-sm-flex d-md-flex">
+                
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://202.29.103.200/notifications">
+                            <span class="d-block" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Notifications">
+                                <i class="fas fa-bell d-none d-md-block d-lg-none"></i>
+                            </span>
+                            <span class="d-sm-block d-md-none d-lg-block">
+                                <i class="fas fa-bell pr-1"></i>
+                                <span class="badge badge-pill badge-danger badge-notification"></span>
+                                Notifications
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://202.29.103.200/user">
+                            <span class="d-block" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Profile">
+                                <i class="fas fa-user-circle d-none d-md-block d-lg-none"></i>
+                            </span>
+                            <span class="d-sm-block d-md-none d-lg-block">
+                                <i class="fas fa-user-circle pr-1"></i>Profile
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://202.29.103.200/settings">
+                            <span class="d-block" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Settings">
+                                <i class="fas fa-cogs d-none d-md-block d-lg-none"></i>
+                            </span>
+                            <span class="d-sm-block d-md-none d-lg-block">
+                                <i class="fas fa-cogs pr-1"></i>Settings
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://202.29.103.200/logout">
+                            <span class="d-block" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Logout">
+                                <i class="fas fa-sign-out-alt d-none d-md-block d-lg-none"></i>
+                            </span>
+                            <span class="d-sm-block d-md-none d-lg-block">
+                                <i class="fas fa-sign-out-alt pr-1"></i><span class="d-lg-none">Logout</span>
+                            </span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+	<main role="main">
+		
+<div class="jumbotron">
+	<div class="container">
+		<h1>Challenges</h1>
+	</div>
+</div>
+
+<div class="modal fade" id="challenge-window" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true"><div class="modal-dialog modal-lg" role="document">
+	<div class="modal-content">
+		<div class="modal-body">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">×</span>
+			</button>
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a class="nav-link active" href="http://202.29.103.200/challenges#challenge">Challenge</a>
+				</li>
+				
+					<li class="nav-item">
+						<a class="nav-link challenge-solves" href="http://202.29.103.200/challenges#solves">
+							
+								13 Solves
+							
+						</a>
+					</li>
+				
+			</ul>
+			<div role="tabpanel">
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane fade show active" id="challenge">
+						<h2 class="challenge-name text-center pt-3">
+							Boss Picture
+						</h2>
+						<h3 class="challenge-value text-center">
+							68
+						</h3>
+
+						<div class="challenge-tags text-center">
+							
+								
+							
+						</div>
+
+						<span class="challenge-desc"><p>ภายในรูปภาพของหัวหน้าใหญ่ Ken Masashita ยังมี flag ซ่อนอยู่จงหามันให้เจอ ซึ่งจะเป็น flag สุดท้ายของภารกิจในครั้งนี้ ขอให้โชคดี</p>
+</span>
+
+						<span class="challenge-connection-info">
+							
+								
+								
+								
+							
+						</span>
+
+						<div class="challenge-hints hint-row row">
+							
+						</div>
+
+						<div class="row challenge-files text-center pb-3">
+							
+						</div>
+
+						
+
+						<div class="row submit-row">
+							<div class="col-md-9 form-group">
+								
+									<input id="challenge-id" class="challenge-id" type="hidden" value="165">
+									<input id="challenge-input" class="challenge-input form-control" type="text" name="answer" placeholder="Flag">
+								
+							</div>
+							<div class="col-md-3 form-group key-submit">
+								
+								<button id="challenge-submit" class="challenge-submit btn btn-md btn-outline-secondary float-right" type="submit">
+									Submit
+								</button>
+								
+							</div>
+						</div>
+
+						<div class="row notification-row">
+							<div class="col-md-12">
+								<div id="result-notification" class="alert alert-dismissable text-center w-100" role="alert" style="display: none;">
+									<strong id="result-message"></strong>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div role="tabpanel" class="tab-pane fade" id="solves">
+						<div class="row">
+							<div class="col-md-12">
+								<table class="table table-striped text-center">
+									<thead>
+									<tr>
+										<td><b>Name</b>
+										</td>
+										<td><b>Date</b>
+										</td>
+									</tr>
+									</thead>
+									<tbody id="challenge-solves-names">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div></div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div>
+
+
+</div>
+		</div>
+	</div>
+
+	<div id="challenges-board"><div id="1578129676-row" class="pt-5"><div class="category-header col-md-12 mb-3"><h3>Cryptography</h3></div><div class="category-challenges col-md-12"><div class="challenges-row col-md-12"><div id="69667161" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="128"><i class="fas fa-check corner-button-check"></i><p>Hi-Hu</p><span>10</span></button></div><div id="-1001274741" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="130"><i class="fas fa-check corner-button-check"></i><p>Rot Rot Rot</p><span>10</span></button></div><div id="-781241430" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="131"><i class="fas fa-check corner-button-check"></i><p>Rot Again</p><span>10</span></button></div><div id="805974695" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="132"><i class="fas fa-check corner-button-check"></i><p>Ook Ook Ook</p><span>10</span></button></div><div id="1132958244" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="144"><i class="fas fa-check corner-button-check"></i><p>NO.30 Or NO.31</p><span>10</span></button></div><div id="-1012204106" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="145"><i class="fas fa-check corner-button-check"></i><p>Message from The Sea</p><span>10</span></button></div><div id="-1790188016" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="146"><i class="fas fa-check corner-button-check"></i><p>Six Senses</p><span>10</span></button></div><div id="-415347990" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="147"><i class="fas fa-check corner-button-check"></i><p>Secret Code</p><span>10</span></button></div><div id="-1598007377" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="148"><i class="fas fa-check corner-button-check"></i><p>Fucking Code</p><span>10</span></button></div><div id="-565473361" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="149"><i class="fas fa-check corner-button-check"></i><p>RSA Easy</p><span>10</span></button></div><div id="918130593" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="192"><i class="fas fa-check corner-button-check"></i><p>Area 45</p><span>10</span></button></div><div id="1501922668" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="193"><i class="fas fa-check corner-button-check"></i><p>Zapf Dingbats</p><span>10</span></button></div><div id="644478696" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="195"><i class="fas fa-check corner-button-check"></i><p>Dog Eat Steak</p><span>10</span></button></div><div id="1408914012" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="129"><i class="fas fa-check corner-button-check"></i><p>Hello Crypto</p><span>28</span></button></div><div id="-1898053020" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="194"><i class="fas fa-check corner-button-check"></i><p>Mal Bol Gee</p><span>43</span></button></div><div id="-521967061" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="228"><i class="fas fa-check corner-button-check"></i><p>Love Emoji</p><span>81</span></button></div><div id="540795518" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="230"><i class="fas fa-check corner-button-check"></i><p>Secret Hex</p><span>84</span></button></div><div id="424683353" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="229"><i class="fas fa-check corner-button-check"></i><p>R-See Four Run</p><span>98</span></button></div></div></div></div><div id="-671675546-row" class="pt-5"><div class="category-header col-md-12 mb-3"><h3>Digital Forensics Extra</h3></div><div class="category-challenges col-md-12"><div class="challenges-row col-md-12"><div id="1859654025" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="200"><i class="fas fa-check corner-button-check"></i><p>Stringme</p><span>10</span></button></div><div id="1522033381" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="201"><i class="fas fa-check corner-button-check"></i><p>Visible Characters</p><span>10</span></button></div><div id="-734056745" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="202"><i class="fas fa-check corner-button-check"></i><p>Child Smile</p><span>10</span></button></div><div id="987894408" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="207"><i class="fas fa-check corner-button-check"></i><p>Power Point</p><span>10</span></button></div><div id="-339654254" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="208"><i class="fas fa-check corner-button-check"></i><p>Here is Flag</p><span>10</span></button></div><div id="-926243983" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="209"><i class="fas fa-check corner-button-check"></i><p>Lay on Flag</p><span>10</span></button></div><div id="-245349092" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="210"><i class="fas fa-check corner-button-check"></i><p>File Transfer</p><span>10</span></button></div><div id="-668972307" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="212"><i class="fas fa-check corner-button-check"></i><p>Quick Time</p><span>10</span></button></div><div id="2058088795" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="213"><i class="fas fa-check corner-button-check"></i><p>Sandwich</p><span>19</span></button></div><div id="-58849091" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="203"><i class="fas fa-check corner-button-check"></i><p>Alan Voice</p><span>28</span></button></div><div id="67396247" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="206"><i class="fas fa-check corner-button-check"></i><p>Excel</p><span>43</span></button></div><div id="-934227760" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="204"><i class="fas fa-check corner-button-check"></i><p>Backwards</p><span>68</span></button></div><div id="-2065183824" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="215"><i class="fas fa-check corner-button-check"></i><p>Age of Wonders</p><span>73</span></button></div><div id="540812162" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="216"><i class="fas fa-check corner-button-check"></i><p>Secret You</p><span>78</span></button></div><div id="-1922217235" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="217"><i class="fas fa-check corner-button-check"></i><p>SNMP Connection</p><span>78</span></button></div><div id="-648653391" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="218"><i class="fas fa-check corner-button-check"></i><p>Who is He</p><span>86</span></button></div><div id="-1350734144" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="205"><i class="fas fa-check corner-button-check"></i><p>Copy The Flag</p><span>89</span></button></div></div></div></div><div id="507265441-row" class="pt-5"><div class="category-header col-md-12 mb-3"><h3>Programming for Ethical Hacking: Basic</h3></div><div class="category-challenges col-md-12"><div class="challenges-row col-md-12"><div id="-1077052275" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="24"><i class="fas fa-check corner-button-check"></i><p>Next Hundred Primes</p><span>10</span></button></div><div id="-1674639445" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="25"><i class="fas fa-check corner-button-check"></i><p>Palindrome Prime</p><span>10</span></button></div><div id="1711558672" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="26"><i class="fas fa-check corner-button-check"></i><p>Fibonacci Number</p><span>10</span></button></div><div id="75213295" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="27"><i class="fas fa-check corner-button-check"></i><p>Ngong</p><span>10</span></button></div><div id="2305108" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="28"><i class="fas fa-check corner-button-check"></i><p>Jeng</p><span>10</span></button></div><div id="1843281763" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="29"><i class="fas fa-check corner-button-check"></i><p>Ineffective Function</p><span>10</span></button></div><div id="1636636522" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="36"><i class="fas fa-check corner-button-check"></i><p>Magic Input</p><span>10</span></button></div><div id="-508511771" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="23"><i class="fas fa-check corner-button-check"></i><p>Languages in Languages</p><span>28</span></button></div><div id="-116626245" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="31"><i class="fas fa-check corner-button-check"></i><p>Logic Flag</p><span>43</span></button></div><div id="-1989686543" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="30"><i class="fas fa-check corner-button-check"></i><p>BMI Calculator</p><span>56</span></button></div><div id="-823581753" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="35"><i class="fas fa-check corner-button-check"></i><p>Multi-Functions</p><span>68</span></button></div><div id="2088942888" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="33"><i class="fas fa-check corner-button-check"></i><p>Hash Me If You Can</p><span>78</span></button></div><div id="-1761825314" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="34"><i class="fas fa-check corner-button-check"></i><p>XOR Flag</p><span>78</span></button></div><div id="-1249454858" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="32"><i class="fas fa-check corner-button-check"></i><p>Student Names</p><span>89</span></button></div></div></div></div><div id="1388442051-row" class="pt-5"><div class="category-header col-md-12 mb-3"><h3>Digital Forensics</h3></div><div class="category-challenges col-md-12"><div class="challenges-row col-md-12"><div id="-1695197320" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="133"><i class="fas fa-check corner-button-check"></i><p>Hidden Image</p><span>10</span></button></div><div id="776920944" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="134"><i class="fas fa-check corner-button-check"></i><p>Hidden Text</p><span>10</span></button></div><div id="-1679915457" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="135"><i class="fas fa-check corner-button-check"></i><p>Comment</p><span>10</span></button></div><div id="-325175083" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="136"><i class="fas fa-check corner-button-check"></i><p>Header Fix</p><span>10</span></button></div><div id="-363936002" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="137"><i class="fas fa-check corner-button-check"></i><p>Sonixif</p><span>10</span></button></div><div id="1128248786" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="138"><i class="fas fa-check corner-button-check"></i><p>Start At The Cat Tail</p><span>10</span></button></div><div id="362600571" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="140"><i class="fas fa-check corner-button-check"></i><p>Easy Capture</p><span>10</span></button></div><div id="458256189" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="141"><i class="fas fa-check corner-button-check"></i><p>Flag File</p><span>10</span></button></div><div id="-2099196468" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="142"><i class="fas fa-check corner-button-check"></i><p>Four Pieces</p><span>10</span></button></div><div id="-1005717929" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="143"><i class="fas fa-check corner-button-check"></i><p>The Sound of Flower</p><span>10</span></button></div><div id="1199206953" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="139"><i class="fas fa-check corner-button-check"></i><p>3Jigsaws-3Pictures-3Words</p><span>73</span></button></div></div></div></div><div id="75503467-row" class="pt-5"><div class="category-header col-md-12 mb-3"><h3>OSINT</h3></div><div class="category-challenges col-md-12"><div class="challenges-row col-md-12"><div id="61435314" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="150"><i class="fas fa-check corner-button-check"></i><p>Start Missions</p><span>10</span></button></div><div id="-487829911" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="151"><i class="fas fa-check corner-button-check"></i><p>World Hacker</p><span>10</span></button></div><div id="776811235" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="152"><i class="fas fa-check corner-button-check"></i><p>Hidden Post</p><span>10</span></button></div><div id="293565372" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="153"><i class="fas fa-check corner-button-check"></i><p>Mega Upload</p><span>10</span></button></div><div id="12908834" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="154"><i class="fas fa-check corner-button-check"></i><p>Secret Group</p><span>10</span></button></div><div id="731808000" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="155"><i class="fas fa-check corner-button-check"></i><p>Secret Server</p><span>10</span></button></div><div id="218073855" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="156"><i class="fas fa-check corner-button-check"></i><p>Server Location</p><span>10</span></button></div><div id="181986794" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="157"><i class="fas fa-check corner-button-check"></i><p>Secret Message</p><span>19</span></button></div><div id="2017512874" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="158"><i class="fas fa-check corner-button-check"></i><p>First Message</p><span>19</span></button></div><div id="-1950257136" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="159"><i class="fas fa-check corner-button-check"></i><p>Secret Account</p><span>43</span></button></div><div id="-901346931" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="160"><i class="fas fa-check corner-button-check"></i><p>Reverse to Origin</p><span>43</span></button></div><div id="-414877709" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="161"><i class="fas fa-check corner-button-check"></i><p>Secret Shop</p><span>43</span></button></div><div id="842442166" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="162"><i class="fas fa-check corner-button-check"></i><p>Secret Wallet</p><span>43</span></button></div><div id="279113692" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="163"><i class="fas fa-check corner-button-check"></i><p>Secret E-mail</p><span>50</span></button></div><div id="-829419285" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="164"><i class="fas fa-check corner-button-check"></i><p>Boss Name</p><span>62</span></button></div><div id="1712302750" class="col-md-3 d-inline-block"><button class="btn btn-dark challenge-button w-100 text-truncate pt-3 pb-3 mb-2 solved-challenge" value="165"><i class="fas fa-check corner-button-check"></i><p>Boss Picture</p><span>68</span></button></div></div></div></div></div>
+</div>
+
+	<div class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">  <div class="modal-dialog" role="document">    <div class="modal-content">      <div class="modal-header">        <h5 class="modal-title">Hint</h5>        <button type="button" class="close" data-dismiss="modal" aria-label="Close">          <span aria-hidden="true">×</span>        </button>      </div>      <div class="modal-body">      <p></p><p>เป็นการเข้ารหัสด้วย 2 อัลกอริทึม</p>
+<ol>
+<li>R....</li>
+<li>B....</li>
+</ol>
+<p></p></div>      <div class="modal-footer">      <button type="button" class="btn btn-primary" data-dismiss="modal">Got it!</button></div>    </div>  </div></div><div class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">  <div class="modal-dialog" role="document">    <div class="modal-content">      <div class="modal-header">        <h5 class="modal-title">Hint</h5>        <button type="button" class="close" data-dismiss="modal" aria-label="Close">          <span aria-hidden="true">×</span>        </button>      </div>      <div class="modal-body">      <p></p><p>เป็นการเข้ารหัสด้วย 2 อัลกอริทึม</p>
+<ol>
+<li>R....</li>
+<li>B....</li>
+</ol>
+<p></p></div>      <div class="modal-footer">      <button type="button" class="btn btn-primary" data-dismiss="modal">Got it!</button></div>    </div>  </div></div><div class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">  <div class="modal-dialog" role="document">    <div class="modal-content">      <div class="modal-header">        <h5 class="modal-title">Hint</h5>        <button type="button" class="close" data-dismiss="modal" aria-label="Close">          <span aria-hidden="true">×</span>        </button>      </div>      <div class="modal-body">      <p></p><p>ชื่อโจทย์มีความหมาย แต่อย่าลืมตบท้ายด้วย -pbkdf2</p>
+<p></p></div>      <div class="modal-footer">      <button type="button" class="btn btn-primary" data-dismiss="modal">Got it!</button></div>    </div>  </div></div><div class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">  <div class="modal-dialog" role="document">    <div class="modal-content">      <div class="modal-header">        <h5 class="modal-title">Hint</h5>        <button type="button" class="close" data-dismiss="modal" aria-label="Close">          <span aria-hidden="true">×</span>        </button>      </div>      <div class="modal-body">      <p></p><p>เปลี่ยนอักษรทุกตัวที่อยู่ภายในเครื่องหมายปีกกาเปิดและปิดให้เป็นค่า md5 ก่อนส่งคำตอบ</p>
+<p></p></div>      <div class="modal-footer">      <button type="button" class="btn btn-primary" data-dismiss="modal">Got it!</button></div>    </div>  </div></div><div class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">  <div class="modal-dialog" role="document">    <div class="modal-content">      <div class="modal-header">        <h5 class="modal-title">Hint</h5>        <button type="button" class="close" data-dismiss="modal" aria-label="Close">          <span aria-hidden="true">×</span>        </button>      </div>      <div class="modal-body">      <p></p><p>น้ำหนักและส่วนสูงเป็นค่าที่มีทศนิยม .0 ทั้งคู่</p>
+<p></p></div>      <div class="modal-footer">      <button type="button" class="btn btn-primary" data-dismiss="modal">Got it!</button></div>    </div>  </div></div><div class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">  <div class="modal-dialog" role="document">    <div class="modal-content">      <div class="modal-header">        <h5 class="modal-title">Hint</h5>        <button type="button" class="close" data-dismiss="modal" aria-label="Close">          <span aria-hidden="true">×</span>        </button>      </div>      <div class="modal-body">      <p></p><p>นับ --&gt; เรียง --&gt; ถอด</p>
+<p></p></div>      <div class="modal-footer">      <button type="button" class="btn btn-primary" data-dismiss="modal">Got it!</button></div>    </div>  </div></div><div class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">  <div class="modal-dialog" role="document">    <div class="modal-content">      <div class="modal-header">        <h5 class="modal-title">Hint</h5>        <button type="button" class="close" data-dismiss="modal" aria-label="Close">          <span aria-hidden="true">×</span>        </button>      </div>      <div class="modal-body">      <p></p><p>รหัสผ่านของไฟล์นี้มี 7 หลัก เป็นอักษรภาษาอังกฤษพิมพ์เล็กทั้งหมด โดยหลักสุดท้ายจบด้วยตัว "a" ส่วนอีก 6 หลักที่เหลือเกิดจากการสลับอักษร 6 ตัว ได้แก่ "acelmr" และ อักษรทั้ง 6 ตัวนี้เมื่อสลับอย่างถูกต้องจะได้คำที่มีความหมาย และเมื่อนำไปต่อกับ "a" ก็จะได้รหัสผ่านของไฟล์</p>
+<p></p></div>      <div class="modal-footer">      <button type="button" class="btn btn-primary" data-dismiss="modal">Got it!</button></div>    </div>  </div></div><div class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">  <div class="modal-dialog" role="document">    <div class="modal-content">      <div class="modal-header">        <h5 class="modal-title">Hint</h5>        <button type="button" class="close" data-dismiss="modal" aria-label="Close">          <span aria-hidden="true">×</span>        </button>      </div>      <div class="modal-body">      <p></p><p>เมื่อเจอข้อความลับแล้ว การถอดรหัสข้อความลับทำได้โดยใช้หลักการของ Messages Steganography ของโซเชียลมีเดียที่ Sirikanya Tongpradit ใช้งาน</p>
+<p></p></div>      <div class="modal-footer">      <button type="button" class="btn btn-primary" data-dismiss="modal">Got it!</button></div>    </div>  </div></div><div class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">  <div class="modal-dialog" role="document">    <div class="modal-content">      <div class="modal-header">        <h5 class="modal-title">Hint</h5>        <button type="button" class="close" data-dismiss="modal" aria-label="Close">          <span aria-hidden="true">×</span>        </button>      </div>      <div class="modal-body">      <p></p><p>ถนนบรมราชชนนี</p>
+<p></p></div>      <div class="modal-footer">      <button type="button" class="btn btn-primary" data-dismiss="modal">Got it!</button></div>    </div>  </div></div><div class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">  <div class="modal-dialog" role="document">    <div class="modal-content">      <div class="modal-header">        <h5 class="modal-title">Hint</h5>        <button type="button" class="close" data-dismiss="modal" aria-label="Close">          <span aria-hidden="true">×</span>        </button>      </div>      <div class="modal-body">      <p></p><p>ถ้า Jane Rockyou ยังไม่ตอบอีเมลล์กลับ ให้ลองตรวจสอบใน Junk Mail ดูอีกครั้ง</p>
+<p></p></div>      <div class="modal-footer">      <button type="button" class="btn btn-primary" data-dismiss="modal">Got it!</button></div>    </div>  </div></div></main>
+
+	<footer class="footer">
+		<div class="container text-center">
+			<a href="https://ctfd.io/" class="text-secondary">
+				<small class="text-muted">Powered by CTFd</small>
+			</a>
+		</div>
+	</footer>
+
+	<script defer="" src="./challenge_page_files/vendor.bundle.min.js"></script>
+	<script defer="" src="./challenge_page_files/core.min.js"></script>
+	<script defer="" src="./challenge_page_files/helpers.min.js"></script>
+
+	
+	<script defer="" src="./challenge_page_files/challenges.min.js"></script>
+
+
+	
+
+
+	
+
+	
+
+</body></html>

@@ -1,4 +1,0 @@
-Chipher : ca0e049c28da3cffa2255b67470196ddc3ddecca4f30c5c356ce16bcce0840faea7cc31b31aa
-Key : 1234567890abcdef
-IV : secret55
-Mode : OFB

@@ -5,3 +5,9 @@
 https://www.reddit.com/user/James_Singers/
 
 ซึ่งเขาได้ทิ้ง flag เอาไว้ หลังจากการโพสต์ข้อความแรกของเขาจงหามันให้เจอ
+
+<details>
+    <summary>Solution</summary>
+    
+- TLDR : `Wayback machine`
+</details>

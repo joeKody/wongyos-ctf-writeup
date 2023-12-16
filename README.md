@@ -3,6 +3,8 @@
 
 **_ไฟล์โจทย์และวิธีทำ จะอยู่ใน_ `Challenges/หัวข้อ/`**
 
+Tools ต่าง ๆ จะใช้ Cyberchef, dcode.fr, aperisolve, และ tools ใน Kali linux
+
 โดยใน CTF นี้มี 5 หัวข้อด้วยกันคือ
 
 1. Cryptography
